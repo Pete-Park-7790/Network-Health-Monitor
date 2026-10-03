@@ -6,7 +6,7 @@ A Python tool that checks hosts for reachability, open TCP ports and DNS resolut
 
 ## Features
 - DNS lookup time, TCP port check with latency, and ICMP ping per host
-- Parallel checks with ThreadPoolExecutor (I measured 1 worker vs 10 workers: ADD YOUR TIMES HERE)
+- Parallel checks with ThreadPoolExecutor 
 - Every check stored in SQLite with a timestamp
 - Dashboard with UP/DOWN status, average latency, uptime % and check count
 
