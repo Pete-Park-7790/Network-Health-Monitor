@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Network Monitor</title>
+        <meta http-equiv="refresh" content="30">
+        <style>
+            body { font-family:Arial, sans-serif; margin: 30px; }
+            table { border-collapse: collapse; width: 100%; }
+            th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+            th { background: #f0f0f0; }
+            .up { color: green; font-weight: bold; }
+            .down { color: red; font-weight: bold; } 
+        </style> 
+    </head>
+    <body>
+        <h2>Network Health Monitor</h2>
+        <p><a href="/run">Run checks now</a></p>
+        <table>
+            <tr>
+                <th>Host</th><th>Port</th><th>Status</th><th>Ping</th><th>DNS</th><th>Avg TCP (ms)</th><th>Uptime %</th><th>Checks</th><th>Last check</th>
+            </tr>
+            {% for r in rows %}
+            <tr>
+                <td>{{ r.host }}</td>
+                <td>{{ r.port }}</td>
+                <td class="{{ 'up' if r.tcp_ok else 'down' }}">{{ 'UP' if r.tcp_ok else 'DOWN' }}</td>
+                <td>{{ 'OK' if r.ping_ok else 'FAIL' }}</td>
+                <td>{{ 'OK' if r.dns_ok else 'FAIL' }}</td>
+                <td>{{ r.avg_ms if r.avg_ms is not none else '-' }}</td>
+                <td>{{ r.uptime_pct }}</td>
+                <td>{{ r.checks }}</td>
+                <td>{{ r.ts }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+google.com,443
+github.com,443
+8.8.8.8,53
+cloudflare.com,443
+microsoft.com,443
+google.com,81
+notarealsite12345.com,443
